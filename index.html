@@ -1,0 +1,277 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b1020"><title>Utilia</title>
+<style>
+:root{--bg:#0b1020;--p:#141d32;--p2:#202d46;--line:#2b3955;--txt:#f4f6ff;--muted:#9eabc4;--a:#897cff;--g:#5be0b5}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#20234a,transparent 38%),var(--bg);color:var(--txt);font:16px Segoe UI,Arial,sans-serif}header{position:sticky;top:0;z-index:3;background:#0b1020ed;border-bottom:1px solid var(--line);padding:14px max(5%,calc((100% - 1100px)/2));display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}.logo{font-size:25px;font-weight:900}.logo span{color:var(--g)}nav{display:flex;gap:5px;flex-wrap:wrap}button{background:var(--a);color:white;border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor:pointer}button:hover{filter:brightness(1.15)}nav button,.secondary{background:var(--p2)}nav button{color:var(--muted)}nav button.active{color:white;background:#51478d}main{max-width:1100px;margin:auto;padding:32px 20px 65px}.page{display:none}.page.active{display:block}.hero{padding:clamp(28px,6vw,60px);border:1px solid var(--line);border-radius:24px;background:linear-gradient(125deg,#222d59,#171d3c 62%,#123c3c)}.hero h1{font-size:clamp(36px,6vw,60px);line-height:1.04;margin:14px 0;letter-spacing:-2px}.hero h1 span,.eyebrow{color:var(--g)}.hero p,.muted{color:#bdc8dd;line-height:1.65;max-width:650px}.eyebrow{font-size:12px;letter-spacing:2px;font-weight:bold}.grid,.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));gap:15px}.card,.tool{background:var(--p);border:1px solid var(--line);border-radius:17px;padding:20px;min-width:0}.card p{color:var(--muted);line-height:1.5}.emoji{font-size:26px}label{display:block;color:#cbd4e7;font-size:13px;margin:10px 0 5px}input,textarea,select{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:#0b1427;color:var(--txt);font:inherit}textarea{min-height:115px;resize:vertical}.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1}.result{white-space:pre-wrap;overflow-wrap:anywhere;background:#0b1427;border:1px solid var(--line);border-radius:11px;padding:13px;margin-top:12px;line-height:1.55;min-height:45px}.small{font-size:12px;color:var(--muted);line-height:1.5}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.actions button{font-size:13px;padding:9px 12px}.chatbox{height:330px;overflow:auto;background:#0b1427;border:1px solid var(--line);border-radius:12px;padding:12px;margin:14px 0}.msg{padding:11px 13px;border-radius:12px;margin:8px 0;max-width:90%;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5}.user{background:#51478d;margin-left:auto}.bot{background:var(--p2)}.quiz-q{padding:13px 0;border-bottom:1px solid var(--line)}.ai-status{padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:#0b1427;color:var(--muted);margin:12px 0;line-height:1.5}.ai-status strong{color:var(--g)}.progress{height:8px;background:#26334d;border-radius:20px;overflow:hidden;margin-top:8px}.progress span{display:block;height:100%;width:0;background:var(--g);transition:width .2s}.quiz-q label{display:flex;gap:8px;align-items:flex-start}.quiz-q input{width:auto;margin-top:3px;accent-color:var(--a)}.upload-box{margin:12px 0;padding:14px;border:1px dashed var(--line);border-radius:12px;background:#101a2d}.upload-box input{margin:8px 0}.limit-info{margin:10px 0;padding:10px 12px;border-radius:10px;background:#101a2d;border:1px solid var(--line);font-size:12px;color:var(--muted)}footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid var(--line)}@media(max-width:620px){header{padding:12px 14px}nav{width:100%;display:grid;grid-template-columns:repeat(4,1fr)}nav button{padding:9px 3px;font-size:12px}main{padding:20px 13px 45px}.row>*{min-width:100%}.chatbox{height:290px}}
+</style></head><body>
+<header><div class="logo">UTILI<span>A</span></div><nav><button class="active" data-page="home">Inicio</button><button data-page="tools">Herramientas</button><button data-page="study">Estudio</button><button data-page="chat">Utilia Chat</button></nav></header>
+<main>
+<section id="home" class="page active"><div class="hero"><div class="eyebrow">TU ESPACIO DIGITAL</div><h1>Menos complicaciones.<br><span>Más soluciones.</span></h1><p>Calcula, convierte, organiza tu estudio y resuelve tus dudas. Todo en una web sencilla y rápida.</p><div class="row"><button onclick="showPage('tools')">Explorar herramientas</button><button class="secondary" onclick="showPage('study')">Ir a estudiar</button></div></div><h2>¿Qué necesitas hacer?</h2><div class="grid">
+<div class="card"><div class="emoji">🧮</div><h3>Calculadoras</h3><p>Porcentajes y operaciones rápidas.</p><button onclick="showPage('tools')">Abrir</button></div><div class="card"><div class="emoji">🔄</div><h3>Conversor</h3><p>Longitud, masa y temperatura.</p><button onclick="showPage('tools')">Abrir</button></div><div class="card"><div class="emoji">📚</div><h3>Estudio</h3><p>Resúmenes, tarjetas y tests.</p><button onclick="showPage('study')">Abrir</button></div><div class="card"><div class="emoji">💬</div><h3>Utilia Chat</h3><p>Chat con IA local en preparación.</p><button onclick="showPage('chat')">Abrir</button></div></div></section>
+<section id="tools" class="page"><h1>Herramientas</h1><p class="muted">Funcionan directamente en tu navegador.</p><div class="tools">
+<div class="tool"><h3>🧮 Porcentajes</h3><label>Porcentaje</label><input id="pct" type="number" placeholder="15"><label>De esta cantidad</label><input id="amt" type="number" placeholder="200"><button onclick="percent()">Calcular</button><div id="pr" class="result">Resultado...</div></div>
+<div class="tool"><h3>🔄 Conversor</h3><label>Tipo</label><select id="kind" onchange="units()"><option value="length">Longitud</option><option value="mass">Masa</option><option value="temp">Temperatura</option></select><div class="row"><div><label>De</label><select id="from"></select></div><div><label>A</label><select id="to"></select></div></div><label>Cantidad</label><input id="val" type="number"><button onclick="convert()">Convertir</button><div id="ur" class="result">Resultado...</div></div>
+<div class="tool"><h3>📝 Contador de texto</h3><textarea id="txt" oninput="count()" placeholder="Escribe o pega un texto..."></textarea><div id="cr" class="result">Palabras: 0<br>Caracteres: 0<br>Lectura: 0 min</div></div>
+<div class="tool"><h3>⏱️ Temporizador</h3><label>Minutos</label><input id="mins" type="number" min="1" value="5"><div id="clock" class="result" style="font-size:32px;text-align:center">05:00</div><div class="row"><button onclick="start()">Iniciar</button><button class="secondary" onclick="pause()">Pausar</button><button class="secondary" onclick="reset()">Reiniciar</button></div></div></div></section>
+<section id="study" class="page"><h1>Asistente de estudio</h1><p class="muted">La IA puede convertir tus apuntes en material para estudiar.</p><div class="card"><div id="studyAIStatus" class="ai-status"><strong>IA todavía apagada.</strong> Actívala una vez para descargar el modelo gratuito en este navegador.</div><button onclick="activateAI()">Activar IA y preparar Utilia</button><div id="studyLimit" class="limit-info"></div><label>Tus apuntes</label>
+<div class="upload-box">
+  <label for="studyImages">📷 Añadir fotos de apuntes (puedes elegir varias)</label>
+  <input id="studyImages" type="file" accept="image/*" multiple>
+  <button class="secondary" id="readImagesBtn" onclick="readStudyImages()">Leer texto de las fotos</button>
+  <div id="ocrStatus" class="small" aria-live="polite">También puedes pegar texto directamente. Las fotos se procesan en tu navegador.</div>
+</div>
+<textarea id="notes" style="min-height:170px" placeholder="Pega aquí el tema que estás estudiando o añade fotos arriba..."></textarea>
+<div class="row"><button onclick="summary()">Crear resumen con IA</button><button onclick="cards()" style="background:#177b68">Crear tarjetas con IA</button><button class="secondary" onclick="quiz()">Crear test con IA</button></div><div id="studyResult" class="result">Aquí aparecerán los resultados.</div><div class="actions"><button class="secondary" onclick="copyStudy()">Copiar resultado</button><button class="secondary" onclick="downloadStudy()">Descargar resultado</button></div><div id="quizArea"></div><p class="small">El modelo funciona en tu propio navegador. Las fotos se leen en este dispositivo mediante OCR. El plan gratuito de esta demo permite 20 mensajes de chat y 10 acciones de estudio al día por navegador. Los límites se guardan localmente y todavía no son un control global de cuentas. La primera descarga del modelo puede tardar; comprueba siempre la información generada.</p></div></section>
+<section id="chat" class="page"><h1>Utilia Chat</h1><p class="muted">Un chat de IA para resolver dudas, explicar temas y ayudarte con ideas.</p><div class="card"><div class="row"><div><h3>Utilia AI</h3><span class="small">Modelo gratuito ejecutado en tu dispositivo.</span></div><button class="secondary" onclick="exportChat()">Descargar chat</button></div><div id="chatAIStatus" class="ai-status"><strong>IA todavía apagada.</strong> Pulsa «Activar IA» para descargar el modelo gratuito.</div><button onclick="activateAI()">Activar IA y preparar Utilia</button><div id="chatLimit" class="limit-info"></div><div class="chatbox" id="chatbox"></div><textarea id="message" style="min-height:65px" placeholder="Escribe una pregunta..."></textarea><div class="row"><button onclick="send()">Enviar mensaje</button><button style="background:#763b4a" onclick="clearChat()">Borrar historial</button></div><p class="small">Tus mensajes y apuntes se procesan en este dispositivo; no se envían a un servidor de IA.</p></div></section>
+</main><footer>UTILIA · Tus herramientas, en un solo lugar.</footer>
+<script>
+const $=id=>document.getElementById(id);
+function showPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===id));scrollTo(0,0)}
+document.querySelectorAll('nav button').forEach(x=>x.onclick=()=>showPage(x.dataset.page));
+function percent(){let p=$('pct').value,a=$('amt').value;$('pr').textContent=p===''||a===''?'Introduce los dos números.':(Number(p)*Number(a)/100).toLocaleString('es-ES')}
+const conv={length:{mm:.001,cm:.01,m:1,km:1000,in:.0254,ft:.3048},mass:{mg:.001,g:1,kg:1000,t:1e6,lb:453.59237}};
+function units(){let k=$('kind').value,n=k==='length'?['mm','cm','m','km','in','ft']:k==='mass'?['mg','g','kg','t','lb']:['°C','°F','K'];['from','to'].forEach((id,i)=>{let s=$(id);s.innerHTML='';n.forEach(v=>s.add(new Option(v,v)));s.selectedIndex=i?Math.min(2,n.length-1):0})}units();
+function convert(){let k=$('kind').value,v=$('val').value,f=$('from').value,t=$('to').value;if(v===''){$('ur').textContent='Introduce una cantidad.';return}let r;if(k==='temp'){let c=f==='°C'?+v:f==='°F'?(+v-32)*5/9:+v-273.15;r=t==='°C'?c:t==='°F'?c*9/5+32:c+273.15}else r=+v*conv[k][f]/conv[k][t];$('ur').textContent=r.toLocaleString('es-ES',{maximumFractionDigits:8})+' '+t}
+function count(){let s=$('txt').value,w=s.trim()?s.trim().split(/\s+/).length:0;$('cr').innerHTML='Palabras: '+w+'<br>Caracteres: '+s.length+'<br>Lectura: '+Math.ceil(w/200)+' min'}
+let seconds=300,interval=null;function draw(){$('clock').textContent=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0')}
+function pause(){clearInterval(interval);interval=null}function reset(){pause();seconds=Math.max(1,+$('mins').value||1)*60;draw()}function start(){if(interval)return;if(seconds<=0)reset();interval=setInterval(()=>{seconds--;draw();if(seconds<=0){pause();alert('¡Tiempo terminado!')}},1000)}$('mins').onchange=reset;draw();
+
+let lastResult='';
+let aiEngine=null, aiLoading=false, aiBusy=false;
+
+// Límites orientativos del plan gratuito en esta instalación del navegador.
+const FREE_CHAT_DAILY=20;
+const FREE_STUDY_DAILY=10;
+const USAGE_KEY='utilia_free_usage_v1';
+function todayKey(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function getUsage(){
+  try{
+    let u=JSON.parse(localStorage.getItem(USAGE_KEY)||'{}');
+    if(u.day!==todayKey())u={day:todayKey(),chat:0,study:0};
+    u.chat=Number(u.chat)||0;u.study=Number(u.study)||0;return u;
+  }catch(e){return {day:todayKey(),chat:0,study:0}}
+}
+function saveUsage(u){try{localStorage.setItem(USAGE_KEY,JSON.stringify(u))}catch(e){};updateUsageUI()}
+function updateUsageUI(){
+  const u=getUsage();
+  if($('studyLimit'))$('studyLimit').textContent='Plan gratuito · Estudio: '+Math.max(0,FREE_STUDY_DAILY-u.study)+' de '+FREE_STUDY_DAILY+' usos restantes hoy.';
+  if($('chatLimit'))$('chatLimit').textContent='Plan gratuito · Chat: '+Math.max(0,FREE_CHAT_DAILY-u.chat)+' de '+FREE_CHAT_DAILY+' mensajes restantes hoy.';
+}
+function canUse(area){
+  const u=getUsage(),limit=area==='chat'?FREE_CHAT_DAILY:FREE_STUDY_DAILY,count=u[area];
+  if(count>=limit){
+    alert('Has alcanzado el límite gratuito de hoy ('+limit+' '+(area==='chat'?'mensajes de chat':'acciones de estudio')+'). Se renueva mañana.');
+    return false;
+  }
+  u[area]++;saveUsage(u);return true;
+}
+updateUsageUI();
+
+let ocrWorkerPromise=null;
+function loadOcrLibrary(){
+  if(window.Tesseract)return Promise.resolve(window.Tesseract);
+  if(window.__utiliaTesseractLoading)return window.__utiliaTesseractLoading;
+  window.__utiliaTesseractLoading=new Promise((resolve,reject)=>{
+    const urls=[
+      'https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js',
+      'https://unpkg.com/tesseract.js@5/dist/tesseract.min.js'
+    ];
+    let i=0;
+    function attempt(){
+      if(i>=urls.length){reject(new Error('No se pudo descargar el lector OCR. Comprueba tu conexión.'));return}
+      const script=document.createElement('script');script.src=urls[i++];script.async=true;
+      script.onload=()=>window.Tesseract?resolve(window.Tesseract):attempt();
+      script.onerror=()=>attempt();
+      document.head.append(script);
+    }
+    attempt();
+  });
+  return window.__utiliaTesseractLoading;
+}
+async function readStudyImages(){
+  const files=Array.from($('studyImages').files||[]);
+  if(!files.length){alert('Primero selecciona una o varias fotos.');return}
+  if(aiBusy)return;
+  const btn=$('readImagesBtn');btn.disabled=true;
+  const status=$('ocrStatus');status.textContent='Preparando el lector de texto…';
+  try{
+    const Tesseract=await loadOcrLibrary();
+    if(!ocrWorkerPromise){
+      ocrWorkerPromise=Tesseract.createWorker('spa',1,{
+        logger:m=>{
+          if(m.status==='recognizing text')status.textContent='Leyendo foto… '+Math.round((m.progress||0)*100)+'%';
+          else status.textContent=m.status==='loading language traineddata'?'Descargando idioma español…':'Preparando OCR…';
+        }
+      });
+    }
+    const worker=await ocrWorkerPromise;
+    const extracted=[];
+    for(let i=0;i<files.length;i++){
+      status.textContent='Leyendo foto '+(i+1)+' de '+files.length+'…';
+      const result=await worker.recognize(files[i]);
+      const text=(result.data.text||'').trim();
+      if(text)extracted.push('--- FOTO '+(i+1)+' ---\n'+text);
+    }
+    if(!extracted.length)throw new Error('No se ha detectado texto. Prueba con fotos más nítidas y bien iluminadas.');
+    const current=$('notes').value.trim();
+    $('notes').value=(current?current+'\n\n':'')+extracted.join('\n\n');
+    status.textContent='¡Listo! Se ha añadido el texto de '+files.length+' foto(s) a tus apuntes. Ya puedes crear un resumen, tarjetas o un test.';
+  }catch(err){
+    status.textContent='No se pudieron leer las fotos: '+err.message;
+    alert('Problema al leer las fotos: '+err.message);
+  }finally{btn.disabled=false}
+}
+
+const AI_MODEL='Qwen2.5-0.5B-Instruct-q4f16_1-MLC';
+
+function setAIStatus(message, progress=null){
+  ['studyAIStatus','chatAIStatus'].forEach(id=>{
+    const el=$(id); if(!el) return;
+    el.innerHTML='';
+    const strong=document.createElement('strong');
+    strong.textContent=aiEngine?'IA lista. ':(aiLoading?'Preparando IA. ':'');
+    el.append(strong,document.createTextNode(message));
+    if(progress!==null){
+      const bar=document.createElement('div');bar.className='progress';
+      const fill=document.createElement('span');fill.style.width=Math.max(0,Math.min(100,progress*100))+'%';
+      bar.append(fill);el.append(bar);
+    }
+  });
+}
+async function activateAI(){
+  if(aiEngine){setAIStatus('Ya está preparada. Puedes usar el chat y el asistente de estudio.');return}
+  if(aiLoading)return;
+  if(!window.isSecureContext){
+    setAIStatus('El navegador bloquea la IA en esta dirección. Utilia necesita abrirse desde una dirección segura (HTTPS) o localhost.');
+    alert('Para activar la IA, Utilia debe abrirse desde una dirección segura (HTTPS o localhost). El archivo abierto directamente puede no permitirlo.');
+    return;
+  }
+  if(!navigator.gpu){
+    setAIStatus('Este navegador o dispositivo no parece tener WebGPU. Prueba con Microsoft Edge o Google Chrome actualizado.');
+    alert('Tu navegador no ofrece WebGPU. Utilia AI necesita Edge o Chrome actualizado y un dispositivo compatible.');
+    return;
+  }
+  aiLoading=true;setAIStatus('Conectando con el motor de IA…');
+  try{
+    let webllm;
+    try {
+      webllm = await import('https://esm.run/@mlc-ai/web-llm');
+    } catch (firstError) {
+      setAIStatus('El primer servidor no responde. Probando una alternativa…');
+      webllm = await import('https://esm.sh/@mlc-ai/web-llm');
+    }
+    aiEngine=await webllm.CreateMLCEngine(AI_MODEL,{
+      initProgressCallback:(report)=>{
+        const pct=typeof report.progress==='number'?report.progress:0;
+        setAIStatus((report.text||'Descargando y preparando el modelo…')+' '+Math.round(pct*100)+'%',pct);
+      }
+    });
+    aiLoading=false;
+    setAIStatus('Todo listo. Ya puedes usar el chat y generar material de estudio.');
+    renderChat();
+  }catch(err){
+    aiLoading=false;aiEngine=null;
+    const msg=(err&&err.message)?err.message:String(err);
+    setAIStatus('No se pudo descargar el motor de IA. Comprueba la conexión e inténtalo de nuevo. Detalle: '+msg);
+    alert('No se pudo descargar el motor de IA desde los servidores disponibles. Comprueba tu conexión y vuelve a intentarlo. Si vuelve a fallar, probaremos otra forma de conexión. Detalle: '+msg);
+  }
+}
+async function askAI(messages, maxTokens=700){
+  if(!aiEngine) throw new Error('Primero pulsa «Activar IA y preparar Utilia».');
+  const result=await aiEngine.chat.completions.create({
+    messages,
+    temperature:0.35,
+    max_tokens:maxTokens
+  });
+  return result.choices?.[0]?.message?.content?.trim()||'No he podido generar una respuesta. Inténtalo otra vez.';
+}
+function putResult(s){lastResult=s;$('studyResult').textContent=s;$('quizArea').innerHTML=''}
+async function studyPrompt(kind){
+  const notes=$('notes').value.trim();
+  if(!notes){alert('Pega primero tus apuntes.');return}
+  if(!aiEngine){alert('Primero pulsa «Activar IA y preparar Utilia».');return}
+  if(aiBusy)return;
+  if(!canUse('study'))return;
+  aiBusy=true;
+  $('studyResult').textContent='La IA está trabajando con tus apuntes…';
+  $('quizArea').innerHTML='';
+  try{
+    let instruction='';
+    if(kind==='summary') instruction='Haz un resumen claro, ordenado y fiel a los apuntes. Usa títulos y viñetas. No inventes datos y conserva los conceptos importantes.';
+    if(kind==='cards') instruction='Crea entre 6 y 12 tarjetas de estudio. Formato: PREGUNTA: ... / RESPUESTA: ... Una tarjeta por concepto importante. Usa solo la información de los apuntes.';
+    if(kind==='quiz') instruction='Crea un test de 5 preguntas de opción múltiple basado exclusivamente en los apuntes. Devuelve SOLO JSON válido con esta estructura: {"questions":[{"question":"...","options":["...","...","...","..."],"answer":0,"explanation":"..."}]}. answer debe ser el índice 0, 1, 2 o 3 de la opción correcta. No incluyas Markdown ni texto fuera del JSON.';
+    const answer=await askAI([
+      {role:'system',content:'Eres Utilia, un asistente educativo en español. Sé claro, correcto y adecuado para estudiantes. No inventes información que no esté en los apuntes.'},
+      {role:'user',content:instruction+'\n\nAPUNTES:\n'+notes}
+    ],kind==='quiz'?900:850);
+    if(kind==='quiz') renderAIQuiz(answer);
+    else putResult((kind==='summary'?'RESUMEN':'TARJETAS DE ESTUDIO')+'\n\n'+answer);
+  }catch(err){$('studyResult').textContent='No se pudo generar el material: '+err.message}
+  finally{aiBusy=false}
+}
+function summary(){studyPrompt('summary')}
+function cards(){studyPrompt('cards')}
+function renderAIQuiz(raw){
+  let data;
+  try{
+    const clean=raw.replace(/```json|```/g,'').trim();
+    data=JSON.parse(clean);
+  }catch(e){putResult('La IA no devolvió el test en el formato esperado. Vuelve a intentarlo.\n\n'+raw);return}
+  const qs=Array.isArray(data.questions)?data.questions:[];
+  if(!qs.length){putResult('No se han podido crear preguntas. Inténtalo otra vez.');return}
+  putResult('TEST DE REPASO\n\nResponde las preguntas y pulsa «Corregir test».');
+  $('quizArea').innerHTML='';
+  qs.forEach((q,i)=>{
+    const d=document.createElement('div');d.className='quiz-q';
+    const p=document.createElement('p');p.textContent=(i+1)+'. '+q.question;d.append(p);
+    (q.options||[]).forEach((v,j)=>{
+      const l=document.createElement('label'),r=document.createElement('input');
+      r.type='radio';r.name='aiq'+i;r.value=j;l.append(r,document.createTextNode(v));d.append(l);
+    });
+    $('quizArea').append(d);
+  });
+  const b=document.createElement('button');b.textContent='Corregir test';
+  b.onclick=()=>{
+    let score=0;
+    const detail=qs.map((q,i)=>{
+      const selected=document.querySelector('input[name=aiq'+i+']:checked');
+      const ok=!!selected&&Number(selected.value)===Number(q.answer);
+      if(ok)score++;
+      return (i+1)+'. '+(ok?'Correcto ✓':'Incorrecto ✗')+'\nRespuesta correcta: '+(q.options||[])[q.answer]+'\n'+(q.explanation||'');
+    }).join('\n\n');
+    const result='RESULTADO: '+score+'/'+qs.length+'\n\n'+detail;
+    $('studyResult').textContent=result;lastResult=result;
+  };
+  $('quizArea').append(b);
+}
+function copyStudy(){if(!lastResult){alert('Primero crea un material.');return}if(navigator.clipboard&&location.protocol!=='file:'){navigator.clipboard.writeText(lastResult).then(()=>alert('Copiado.')).catch(()=>fallback(lastResult))}else fallback(lastResult)}
+function fallback(s){let t=document.createElement('textarea');t.value=s;document.body.append(t);t.select();document.execCommand('copy');t.remove();alert('Copiado.')}
+function download(s,n){let u=URL.createObjectURL(new Blob([s],{type:'text/plain;charset=utf-8'})),a=document.createElement('a');a.href=u;a.download=n;a.click();URL.revokeObjectURL(u)}
+function downloadStudy(){if(!lastResult){alert('Primero crea un material.');return}download(lastResult,'utilia-material-estudio.txt')}
+
+const KEY='utilia_chat_v4';let history=[];
+try{history=JSON.parse(localStorage.getItem(KEY)||'[]');if(!Array.isArray(history))history=[]}catch(e){history=[]}
+function renderChat(){
+  $('chatbox').innerHTML='';
+  if(!history.length){let d=document.createElement('div');d.className='msg bot';d.textContent=aiEngine?'¡Hola! Soy Utilia. ¿En qué puedo ayudarte?':'¡Hola! Activa la IA para empezar a conversar.';$('chatbox').append(d)}
+  history.forEach(m=>{let d=document.createElement('div');d.className='msg '+m.role;d.textContent=m.text;$('chatbox').append(d)});
+  $('chatbox').scrollTop=$('chatbox').scrollHeight;
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(history))}catch(e){}}
+async function send(){
+  const s=$('message').value.trim();if(!s||aiBusy)return;
+  if(!aiEngine){alert('Primero pulsa «Activar IA y preparar Utilia».');return}
+  if(!canUse('chat'))return;
+  history.push({role:'user',text:s});$('message').value='';save();renderChat();aiBusy=true;
+  try{
+    const messages=[{role:'system',content:'Eres Utilia, un asistente útil, cercano y claro. Responde en español salvo que el usuario pida otro idioma. Explica paso a paso cuando sea necesario y reconoce si no sabes algo.'}];
+    history.slice(-12).forEach(m=>messages.push({role:m.role==='bot'?'assistant':'user',content:m.text}));
+    const reply=await askAI(messages,700);
+    history.push({role:'bot',text:reply});
+  }catch(err){history.push({role:'bot',text:'No he podido responder: '+err.message})}
+  finally{aiBusy=false;save();renderChat()}
+}
+function clearChat(){if(confirm('¿Borrar el historial guardado en este navegador?')){history=[];save();renderChat()}}
+function exportChat(){if(!history.length){alert('No hay mensajes que descargar.');return}download(history.map(m=>(m.role==='user'?'Tú':'Utilia')+': '+m.text).join('\n\n'),'utilia-chat.txt')}
+$('message').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});
+renderChat();
+
+</script></body></html>
